@@ -41,5 +41,5 @@ Trainings before my official final exams.
 5. Exception Handling (to be uploaded soon)
 6. SOLID (to be uploaded soon)
 7. Reflection and Attributes (to be uploaded soon)
-8. Unit Testing (to be uploaded soon)
+8. [Unit Testing](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20OOP/E08-Unit%20Testing)
 9. Mocking and Test Driven Development (to be uploaded soon)
