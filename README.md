@@ -32,3 +32,14 @@ Trainings before my official final exams.
 5. [Defining Classes](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20Advanced/Defining%20Classes)
 6. [Iterators and Comparators](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20Advanced/Iterators%20And%20Comparators)
 7. [Generics](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20Advanced/Generics)
+
+### C# OOP
+1. [Inheritance](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20OOP/E01-Inheritance)
+2. [Encapsulation](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20OOP/E02-Encapsulation)
+3. [Interfaces and Abstraction](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20OOP/E03-Interfaces%20and%20Abstraction)
+4. Polymorphism (to be uploaded soon)
+5. Exception Handling (to be uploaded soon)
+6. SOLID (to be uploaded soon)
+7. Reflection and Attributes (to be uploaded soon)
+8. Unit Testing (to be uploaded soon)
+9. Mocking and Test Driven Development (to be uploaded soon)
