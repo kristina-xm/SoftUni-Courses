@@ -9,6 +9,7 @@ Here is the summary of the folders:
 My Final еxams for every course
 1. [C# Fundamentals](https://github.com/kristina-xm/SoftUni-Courses/tree/main/Final%20Exams/C%23%20Fundamentals%20Apr%202022)
 2. [C# Advanced](https://github.com/kristina-xm/SoftUni-Courses/tree/main/Final%20Exams/C%23%20Advanced%20Jun%202022)  
+3. [C# OOP](https://github.com/kristina-xm/SoftUni-Courses/tree/main/Final%20Exams/C%23%20OOP%20Aug%202022)
 
 ### Practice (Exam preparation)
 Trainings before my official final exams.
