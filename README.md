@@ -37,7 +37,7 @@ Trainings before my official final exams.
 1. [Inheritance](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20OOP/E01-Inheritance)
 2. [Encapsulation](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20OOP/E02-Encapsulation)
 3. [Interfaces and Abstraction](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20OOP/E03-Interfaces%20and%20Abstraction)
-4. Polymorphism (to be uploaded soon)
+4. [Polymorphism](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20OOP/E04-Polymorphism)
 5. Exception Handling (to be uploaded soon)
 6. SOLID (to be uploaded soon)
 7. Reflection and Attributes (to be uploaded soon)
