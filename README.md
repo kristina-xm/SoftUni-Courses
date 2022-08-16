@@ -31,4 +31,4 @@ Trainings before my official final exams.
 4. [Streams, Files and Directories](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20Advanced/Streams%2C%20Files%20and%20Directories)
 5. [Defining Classes](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20Advanced/Defining%20Classes)
 6. [Iterators and Comparators](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20Advanced/Iterators%20And%20Comparators)
-7. Generics
+7. [Generics](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20Advanced/Generics)
