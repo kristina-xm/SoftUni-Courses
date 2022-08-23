@@ -1,0 +1,28 @@
+﻿namespace Gym.Models.Equipment
+{
+    using Gym.Models.Equipment.Contracts;
+    using System;
+
+    public abstract class Equipment : IEquipment
+    {
+        private double weight;
+        private decimal price;
+
+        protected Equipment(double weight, decimal price)
+        {
+             this.Weight = weight;
+             this.Price = price;
+        }
+        public double Weight
+        {
+            get { return weight; }
+            set { weight = value; }
+        }
+
+        public decimal Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+    }
+}
