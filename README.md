@@ -15,6 +15,7 @@ My Final еxams for every course
 Trainings before my official final exams.
 1. [C# Fundamentals](https://github.com/kristina-xm/SoftUni-Courses/tree/main/Practice/C%23%20Fundamentals)
 2. [C# Advanced](https://github.com/kristina-xm/SoftUni-Courses/tree/main/Practice/C%23%20Advanced)
+3. [C# OOP](https://github.com/kristina-xm/SoftUni-Courses/tree/main/Practice/C%23%20OOP)
 
 ### C# Fundamentals
 1. [Arrays](https://github.com/kristina-xm/SoftUni-Courses/tree/main/C%23%20Fundamentals/Arrays)
