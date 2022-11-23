@@ -1,7 +1,7 @@
 # SoftUni-Courses
 
 This repository shares my education process in SoftUni courses. 
-<br>All of the files are tested in Judge - an open source system for online algorithm competitions: https://judge.softuni.org/
+<br>The uploaded code has been tested in Judge - an open source system for online algorithm competitions: https://judge.softuni.org/
 
 Here is the summary of the folders:
 
