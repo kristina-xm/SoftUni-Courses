@@ -31,9 +31,7 @@ async function request(url, options) {
 function createOptions(method = 'get', data){
     const options = {
         method,
-        headers: {
-
-        }
+        headers: {}
     }
 
     if(data !== undefined){
@@ -99,6 +97,6 @@ export async function register(username, email, password, gender){
 
 export async function logout(){
 
-    await get('/users/logout');
+    get('/users/logout');
     clearUserData();
 }

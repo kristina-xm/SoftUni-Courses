@@ -3,7 +3,7 @@ const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
-const DEBUG = false;
+const DEBUG = true;
 
 const mockData = require('./mock-data.json');
 const endpoints = {
@@ -407,7 +407,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('text="Edit"')).to.be.false;
         });
 
-        it('author sees delete and edit buttons [ 2.5 Points ]', async () => {
+        it.only('author sees delete and edit buttons [ 2.5 Points ]', async () => {
             const mock = mockData[5];
             await page.waitForTimeout(300);
 
