@@ -7,6 +7,7 @@
     using CarDealer.Utilities;
     using Castle.DynamicProxy.Generators;
     using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
+    using System.IO;
 
     public class StartUp
     {
@@ -14,9 +15,9 @@
         {
             CarDealerContext context = new CarDealerContext();
 
-            string inputXml = File.ReadAllText("../../../Datasets/suppliers.xml");
+            string inputXml = File.ReadAllText("../../../Datasets/parts.xml");
 
-            string result = ImportSuppliers(context, inputXml);
+            string result = ImportParts(context, inputXml);
 
             Console.WriteLine(result);
             
@@ -49,6 +50,40 @@
             context.SaveChanges();
 
             return $"Successfully imported {validSuppliers.Count}";
+        }
+
+        public static string ImportParts(CarDealerContext context, string inputXml)
+        {
+            IMapper mapper = InitializeAutoMapper();
+
+            XMLHelper helper = new XMLHelper();
+
+            ImportPartDto[] partDtos = helper.Deserialize<ImportPartDto[]>(inputXml, "Parts");
+
+            ICollection<Part> validParts = new HashSet<Part>();
+
+            foreach (var partDto in partDtos)
+            {
+                if (string.IsNullOrEmpty(partDto.Name))
+                {
+                    continue;
+                }
+
+                if (!partDto.SupplierId.HasValue || !context.Suppliers.Any(s => s.Id == partDto.SupplierId))
+                {
+                    continue;
+                }
+
+                Part part = mapper.Map<Part>(partDto);
+
+                validParts.Add(part);
+
+            }
+
+            context.Parts.AddRange(validParts);
+            context.SaveChanges();
+
+            return $"Successfully imported {validParts.Count}";
         }
 
         private static IMapper InitializeAutoMapper()
