@@ -5,9 +5,6 @@
     using CarDealer.DTOs.Import;
     using CarDealer.Models;
     using CarDealer.Utilities;
-    using Castle.DynamicProxy.Generators;
-    using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
-    using Microsoft.EntityFrameworkCore.Metadata.Conventions;
     using System.IO;
 
     public class StartUp
@@ -16,9 +13,9 @@
         {
             CarDealerContext context = new CarDealerContext();
 
-            string inputXml = File.ReadAllText("../../../Datasets/cars.xml");
+            string inputXml = File.ReadAllText("../../../Datasets/customers.xml");
 
-            string result = ImportCars(context, inputXml);
+            string result = ImportCustomers(context, inputXml);
 
             Console.WriteLine(result);
             
@@ -132,6 +129,33 @@
 
             return $"Successfully imported {validCars.Count}";
 
+        }
+
+        public static string ImportCustomers(CarDealerContext context, string inputXml)
+        {
+            IMapper mapper = InitializeAutoMapper();
+
+            XMLHelper helper = new XMLHelper();
+
+            ImportCustomerDto[] customersDtos = helper.Deserialize<ImportCustomerDto[]>(inputXml, "Customers");
+
+            ICollection<Customer> validCustomers = new HashSet<Customer>();
+
+            foreach (var custDto in customersDtos)
+            {
+                if (string.IsNullOrEmpty(custDto.Name) || string.IsNullOrEmpty(custDto.BirthDate))
+                {
+                    continue;
+                }
+
+                Customer customer = mapper.Map<Customer>(custDto);  
+
+                validCustomers.Add(customer);
+            }
+            context.Customers.AddRange(validCustomers);
+            context.SaveChanges();
+
+            return $"Successfully imported {validCustomers.Count}";
         }
 
         private static IMapper InitializeAutoMapper()
