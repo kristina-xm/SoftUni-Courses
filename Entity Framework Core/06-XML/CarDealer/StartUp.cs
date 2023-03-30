@@ -1,13 +1,15 @@
 ﻿namespace CarDealer
 {
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using CarDealer.Data;
+    using CarDealer.DTOs.Export;
     using CarDealer.DTOs.Import;
     using CarDealer.Models;
     using CarDealer.Utilities;
-    using Castle.Core.Resource;
-    using Microsoft.EntityFrameworkCore.Metadata.Conventions;
     using System.IO;
+    using System.Text;
+    using System.Xml.Serialization;
 
     public class StartUp
     {
@@ -15,9 +17,9 @@
         {
             CarDealerContext context = new CarDealerContext();
 
-            string inputXml = File.ReadAllText("../../../Datasets/sales.xml");
+           // string inputXml = File.ReadAllText("../../../Datasets/sales.xml");
 
-            string result = ImportSales(context, inputXml);
+            string result = GetCarsWithDistance(context);
 
             Console.WriteLine(result);
             
@@ -191,6 +193,36 @@
             context.SaveChanges();
 
             return $"Successfully imported {validSales.Count}";
+        }
+
+        public static string GetCarsWithDistance(CarDealerContext context)
+        {
+            IMapper mapper = InitializeAutoMapper();
+
+            StringBuilder sb = new StringBuilder();
+
+            ExportCarDto[] cars = context.Cars
+                .Where(c => c.TraveledDistance > 2000000)
+                .OrderBy(c => c.Make)
+                .ThenBy(c => c.Model)
+                .Take(10)
+                .ProjectTo<ExportCarDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+            XmlRootAttribute root = new XmlRootAttribute("cars");
+
+            XmlSerializer serializer = new XmlSerializer(typeof(ExportCarDto[]), root);
+
+            XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+
+            namespaces.Add(string.Empty, string.Empty);
+
+            using StringWriter writer = new StringWriter(sb);
+
+            serializer.Serialize(writer, cars, namespaces);
+
+            return sb.ToString().TrimEnd();
+
         }
         private static IMapper InitializeAutoMapper()
             => new Mapper(new MapperConfiguration(cfg =>
