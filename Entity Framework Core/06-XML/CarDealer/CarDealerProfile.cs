@@ -19,6 +19,9 @@
 
             this.CreateMap<ImportCustomerDto, Customer>()
                 .ForMember(d => d.BirthDate, opt => opt.MapFrom(s => DateTime.Parse(s.BirthDate, CultureInfo.InvariantCulture)));
+
+            this.CreateMap<ImportSaleDto, Sale>()
+                .ForMember(d => d.CarId, opt => opt.MapFrom(s => s.CarId.Value));
         }
     }
 }
