@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
-using Trucks.Validations;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace Trucks.Data.Models
+﻿namespace Trucks.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Trucks.Validations;
     public class Despatcher
     {
         public Despatcher()
@@ -21,7 +14,7 @@ namespace Trucks.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(ValidationsConstants.DespatcherName)]
+        [MaxLength(ValidationConstants.DespatcherName)]
         public string Name { get; set; } = null!;
         public string? Position { get; set; }
 

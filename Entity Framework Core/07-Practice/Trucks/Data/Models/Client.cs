@@ -13,11 +13,11 @@
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(ValidationsConstants.ClientName)]
+        [MaxLength(ValidationConstants.ClientName)]
         public string Name { get; set; } = null!;
 
         [Required]
-        [MaxLength(ValidationsConstants.ClientNationality)]
+        [MaxLength(ValidationConstants.ClientNationality)]
         public string Nationality { get; set; } = null!;
 
         [Required]

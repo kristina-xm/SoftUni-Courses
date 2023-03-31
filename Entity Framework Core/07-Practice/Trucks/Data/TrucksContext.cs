@@ -19,8 +19,6 @@
         public DbSet<Despatcher> Despatchers { get; set; } = null!;
         public DbSet<ClientTruck> ClientsTrucks { get; set; } = null!;
 
-
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

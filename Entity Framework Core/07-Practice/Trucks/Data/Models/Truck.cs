@@ -17,11 +17,11 @@
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(ValidationsConstants.RegistrationNumberLength)]
+        [MaxLength(ValidationConstants.RegistrationNumberLength)]
         public string RegistrationNumber { get; set; }
 
         [Required]
-        [MaxLength(ValidationsConstants.VinNumberMaxLength)]
+        [MaxLength(ValidationConstants.VinNumberMaxLength)]
         public string VinNumber { get; set; } = null!;
         public int TankCapacity { get; set; }
         public int CargoCapacity { get; set; }

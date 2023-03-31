@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trucks.Validations
 {
-    public static class ValidationsConstants
+    public static class ValidationConstants
     {
         public const int RegistrationNumberLength = 8;
         public const int VinNumberMaxLength = 18;
