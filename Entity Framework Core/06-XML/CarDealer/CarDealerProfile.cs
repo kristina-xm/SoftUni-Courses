@@ -20,6 +20,8 @@
 
             this.CreateMap<Car, ExportCarDto>();
 
+            this.CreateMap<Car, ExportBmwCarDto>();
+
             this.CreateMap<ImportCustomerDto, Customer>()
                 .ForMember(d => d.BirthDate, opt => opt.MapFrom(s => DateTime.Parse(s.BirthDate, CultureInfo.InvariantCulture)));
 

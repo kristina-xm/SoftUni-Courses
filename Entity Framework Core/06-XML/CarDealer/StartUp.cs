@@ -1,19 +1,9 @@
 ﻿namespace CarDealer
 {
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
     using CarDealer.Data;
     using CarDealer.DataAccess.Exporters;
-    using CarDealer.DataAccess.Importers;
-    using CarDealer.DTOs.Export;
-    using CarDealer.DTOs.Import;
-    using CarDealer.Models;
-    using CarDealer.Utilities;
-    using System.IO;
-    using System.Text;
-    using System.Xml.Serialization;
 
-    public class StartUp : PartsImporter
+    public class StartUp
     {
         public static void Main()
         {
@@ -21,7 +11,7 @@
 
            // string inputXml = File.ReadAllText("../../../Datasets/sales.xml");
 
-            string result = CarExporter.GetCarsWithDistance(context);
+            string result = BmwExporter.GetCarsFromMakeBmw(context);
 
             Console.WriteLine(result);
             
