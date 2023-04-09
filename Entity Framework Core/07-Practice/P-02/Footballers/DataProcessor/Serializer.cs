@@ -40,28 +40,26 @@
 
         public static string ExportTeamsWithMostFootballers(FootballersContext context, DateTime date)
         {
+
             var teamsWithFootballers = context.Teams
-                .Include(t => t.TeamsFootballers)
-                .ThenInclude(t => t.Footballer)
-                .AsNoTracking()
+                .Where(t => t.TeamsFootballers.Any(f => f.Footballer.ContractStartDate >= date))
                 .ToArray()
-                .Where(t => t.TeamsFootballers.Any(tf => tf.Footballer.ContractStartDate >= date))
                 .Select(t => new
                 {
                     t.Name,
                     Footballers = t.TeamsFootballers
                         .Where(tf => tf.Footballer.ContractStartDate >= date)
-                        .Select(f => new
+                        .ToArray()
+                        .OrderByDescending(tf => tf.Footballer.ContractEndDate)
+                        .ThenBy(tf => tf.Footballer.Name)
+                        .Select(tf => new
                         {
-                            FootballerName = f.Footballer.Name,
-                            ContractStartDate = f.Footballer.ContractStartDate.ToString("d", CultureInfo.CurrentCulture),
-                            ContractEndDate = f.Footballer.ContractEndDate.ToString("d", CultureInfo.CurrentCulture),
-                            BestSkillType = Enum.GetName(typeof(BestSkillType), f.Footballer.BestSkillType),
-                            PositionType = Enum.GetName(typeof(PositionType), f.Footballer.PositionType)
-
+                            FootballerName = tf.Footballer.Name,
+                            ContractStartDate = tf.Footballer.ContractStartDate.ToString("d", CultureInfo.InvariantCulture),
+                            ContractEndDate = tf.Footballer.ContractEndDate.ToString("d", CultureInfo.InvariantCulture),
+                            BestSkillType = tf.Footballer.BestSkillType.ToString(),
+                            PositionType = tf.Footballer.PositionType.ToString(),
                         })
-                        .OrderByDescending(f => f.ContractEndDate)
-                        .ThenBy(f => f.FootballerName)
                         .ToArray()
                 })
                 .OrderByDescending(t => t.Footballers.Length)
