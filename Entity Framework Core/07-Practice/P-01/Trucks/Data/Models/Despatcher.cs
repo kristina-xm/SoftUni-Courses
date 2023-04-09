@@ -7,14 +7,14 @@
     {
         public Despatcher()
         {
-            this.Trucks= new HashSet<Truck>();
+            this.Trucks = new HashSet<Truck>();
         }
 
         [Key]
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.DespatcherName)]
+        [MaxLength(ValidationConstants.DespatcherNameMaxLength)]
         public string Name { get; set; } = null!;
         public string? Position { get; set; }
 

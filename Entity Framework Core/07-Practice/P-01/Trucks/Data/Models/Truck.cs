@@ -18,7 +18,7 @@
         public int Id { get; set; }
 
         [MaxLength(ValidationConstants.RegistrationNumberLength)]
-        public string RegistrationNumber { get; set; }
+        public string? RegistrationNumber { get; set; }
 
         [Required]
         [MaxLength(ValidationConstants.VinNumberMaxLength)]
@@ -31,7 +31,7 @@
 
         [ForeignKey(nameof(Despatcher))]
         public int DespatcherId { get; set; }
-        public virtual Despatcher Despatcher { get; set; }
+        public virtual Despatcher Despatcher { get; set; } = null!;
 
 
         public virtual ICollection<ClientTruck> ClientsTrucks { get; set; }
