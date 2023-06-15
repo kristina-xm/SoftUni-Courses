@@ -1,18 +1,45 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.btn-primary {
+    background-color: hotpink;
+    border-block-color: deeppink;
+    border-radius: 20px;
+    border: none;
+}
+
+.btn-primary:hover {
+    text-decoration:underline;
+    font-weight:600;
+    background-color: deeppink;
+    color: white;
+}
+
+.btn-warning {
+    background-color: black;
+    border-color: black;
+    color: lightpink;
+    font-weight: bolder;
+}
+
+.btn-warning:hover{
+    border:none;
+    background-color: lightpink;
+    color:black;
 }

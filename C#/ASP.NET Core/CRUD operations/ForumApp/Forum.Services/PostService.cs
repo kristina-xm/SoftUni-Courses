@@ -72,5 +72,16 @@ namespace Forum.Services
 
             return allPosts;
         }
+
+        public async Task DeleteByIdAsync(string id)
+        {
+            Post postToDelete = await this.dbContext
+                .Posts
+                .FirstAsync(p => p.Id.ToString() == id);
+
+            this.dbContext.Posts.Remove(postToDelete);
+            await this.dbContext.SaveChangesAsync();
+
+        }
     }
 }
